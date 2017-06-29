@@ -61,6 +61,7 @@ void dvo::core::NormalEquationsLeastSquares::update(const Eigen::Matrix<NumType,
   b -= J.transpose() * weight * res;
 
   num_constraints += 1;
+  //    std::cerr <<"d";
 }
 
 void dvo::core::NormalEquationsLeastSquares::combine(const dvo::core::NormalEquationsLeastSquares& other)
@@ -74,6 +75,7 @@ void dvo::core::NormalEquationsLeastSquares::combine(const dvo::core::NormalEqua
 void dvo::core::NormalEquationsLeastSquares::finish()
 {
   A_opt.toEigen(A);
+  //std::cerr <<"b";
   //A /= (NumType) num_constraints;
   //b /= (NumType) num_constraints;
   //error /= (NumType) num_constraints;
@@ -82,6 +84,8 @@ void dvo::core::NormalEquationsLeastSquares::finish()
 void dvo::core::NormalEquationsLeastSquares::solve(dvo::core::Vector6& x)
 {
   x = A.ldlt().solve(b);
+
+
 }
 
 // ------ Normal Equations EVD ------
@@ -90,6 +94,7 @@ dvo::core::EvdLeastSquares::~EvdLeastSquares() { }
 
 void dvo::core::EvdLeastSquares::solve(dvo::core::Vector6& x)
 {
+
   // eigen value decomposition seems to be equivalent to SVD for our matrix A
   Eigen::SelfAdjointEigenSolver<dvo::core::Matrix6x6> eigensolver(A);
   dvo::core::Vector6 eigenvalues = eigensolver.eigenvalues();

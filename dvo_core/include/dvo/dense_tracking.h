@@ -38,6 +38,11 @@ namespace dvo
 
 class DenseTracker
 {
+private:
+  float _omega_intensity = 1.f;
+
+public:
+  inline void setOmegaIntensity(const float omega_intensity){_omega_intensity = omega_intensity;}
 public:
   struct Config
   {

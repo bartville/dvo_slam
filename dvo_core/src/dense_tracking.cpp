@@ -130,6 +130,7 @@ bool DenseTracker::match(dvo::core::RgbdImagePyramid& reference, dvo::core::Rgbd
 
 bool DenseTracker::match(dvo::core::PointSelection& reference, dvo::core::RgbdImagePyramid& current, dvo::DenseTracker::Result& result)
 {
+ 
   current.compute(cfg.getNumLevels());
 
   bool success = true;
@@ -330,6 +331,9 @@ bool DenseTracker::match(dvo::core::PointSelection& reference, dvo::core::RgbdIm
       Eigen::Vector2f Ji;
       Vector6 Jz;
       ls.initialize(1);
+
+      precision(0,0) *= _omega_intensity; //suppress intensity channel
+
       for(PointIterator e_it = compute_residuals_result.first_point_error; e_it != compute_residuals_result.last_point_error; ++e_it, ++w_it)
       {
         computeJacobianOfProjectionAndTransformation(e_it->getPointVec4f(), Jw);
