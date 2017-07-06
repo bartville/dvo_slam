@@ -2,11 +2,13 @@ cmake_minimum_required(VERSION 2.8.3)
 
 project(dvo_core)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake_modules/")
+
 find_package(catkin REQUIRED COMPONENTS cv_bridge)
 find_package(cmake_modules REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common filters)
 find_package(Eigen3 REQUIRED)
-find_package(sophus REQUIRED)
+find_package(Sophus REQUIRED)
 find_package(Boost REQUIRED COMPONENTS thread)
 #find_package(OpenCV 3 REQUIRED)
 find_package(TBB REQUIRED)
@@ -20,9 +22,10 @@ catkin_package(
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3 -msse4 -ftree-vectorize")
 set(CMAKE_BUILD_TYPE Release)
 
+
 include_directories(
   "include"
-  ${sophus_INCLUDE_DIRS}
+  ${Sophus_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}

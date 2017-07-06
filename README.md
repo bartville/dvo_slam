@@ -22,34 +22,24 @@ These packages provide an implementation of the rigid body motion estimation of 
     
  *  **sophus**
     
-    ROS package wrapper for Hauke Strasdat's Sophus library, see https://github.com/strasdat/Sophus.
+    ROS package wrapper for Hauke Strasdat's Sophus library (reverted to compliant commit), see https://github.com/bartville/Sophus.
     
 
 ## Installation
 
 Checkout the branch for your ROS version into a folder in your `ROS_PACKAGE_PATH` and build the packages with `rosmake`.
 
- *  ROS Fuerte:
+ *  ROS Kinetic:
     
     ```bash
     git clone -b fuerte git://github.com/tum-vision/dvo_slam.git
-    rosmake dvo_core dvo_ros dvo_slam dvo_benchmark
+    catkin_make
     ```
 
 ## Usage
 
 Estimating the camera trajectory from an RGB-D image stream:
 
-*TODO*
-
-For visualization:
-
- *  Start RVIZ
- *  Set the *Target Frame* to `/world`
- *  Add an *Interactive Marker* display and set its *Update Topic* to `/dvo_vis/update`
- *  Add a *PointCloud2* display and set its *Topic* to `/dvo_vis/cloud`
-
-The red camera shows the current camera position. The blue camera displays the initial camera position.
 
 ## Publications
 
