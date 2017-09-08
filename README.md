@@ -1,47 +1,19 @@
-# Dense Visual Odometry and SLAM (dvo_slam)
+# Dense Visual Odometry
 
-*NOTE: this is an alpha release APIs and parameters are going to change in near future. No support is provided at this point.*
+I've forked DVO to use it in my [srrg_dvo_wrapper](https://gitlab.com/srrg-software/srrg_dvo_wrapper).
 
-These packages provide an implementation of the rigid body motion estimation of an RGB-D camera from consecutive images.
+SLAM pipeline compilation is disabled, since I only needed Visual odometry functions and the SLAM pipeline has to be fixed for g2o compilation issues.
 
- *  **dvo_core**
-    
-    Core implementation of the motion estimation algorithm. 
-    
- *  **dvo_ros**
-    
-    Integration of *dvo_core* with ROS.
-    
- *  **dvo_slam**
-    
-    Pose graph SLAM system based on *dvo_core* and integration with ROS.
-    
- *  **dvo_benchmark**
-    
-    Integration of *dvo_slam* with TUM RGB-D benchmark, see http://vision.in.tum.de/data/datasets/rgbd-dataset.
-    
- *  **sophus**
-    
-    ROS package wrapper for Hauke Strasdat's Sophus library (reverted to compliant commit), see https://github.com/bartville/Sophus.
+## Prerequisites 
+
+ROS package wrapper for Hauke Strasdat's Sophus library (reverted to compliant commit), see https://github.com/bartville/Sophus.
     
 
 ## Installation
 
-Checkout the branch for your ROS version into a folder in your `ROS_PACKAGE_PATH` and build the packages with `rosmake`.
+Put it in your Kinetic catkin workspace and compile.
 
- *  ROS Kinetic:
-    
-    ```bash
-    git clone -b fuerte git://github.com/tum-vision/dvo_slam.git
-    catkin_make
-    ```
-
-## Usage
-
-Estimating the camera trajectory from an RGB-D image stream:
-
-
-## Publications
+## Publications of the Authors from TUM University
 
 The following publications describe the approach:
 
