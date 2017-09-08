@@ -49,44 +49,52 @@ include_directories(
   ${G2O_INCLUDE_DIR}
 )
 
-add_library(${PROJECT_NAME} 
-  src/keyframe_tracker.cpp
-  src/keyframe_graph.cpp
-  src/keyframe_constraint_search.cpp
-  src/camera_keyframe_tracking.cpp
-  
-  src/config.cpp
-  
-  src/tracking_result_evaluation.cpp
-  src/local_map.cpp
-  src/local_tracker.cpp
-  
-  src/constraints/constraint_proposal.cpp
-  src/constraints/constraint_proposal_voter.cpp
-  src/constraints/constraint_proposal_validator.cpp
-  
-  src/serialization/map_serializer_interface.cpp
-  src/serialization/map_serializer.cpp
-  
-  src/visualization/graph_visualizer.cpp
-  
-  src/types.cpp
-)
+###
+### BART (remember this)
+###
+######
+# you have disabled the following stuff after pull of g2o, cause it doesn't compile and you don't needed it. Cheers
+# Bart from the past (08/09/17)
+######
 
-target_link_libraries(${PROJECT_NAME}
-  ${G2O_CORE_LIBRARY}
-  ${G2O_SOLVER_DENSE}
-  ${G2O_SOLVER_EIGEN}
-  ${G2O_TYPES_SLAM3D}
-  ${catkin_LIBRARIES}
-)
+# add_library(${PROJECT_NAME} 
+#   src/keyframe_tracker.cpp
+#   src/keyframe_graph.cpp
+#   src/keyframe_constraint_search.cpp
+#   src/camera_keyframe_tracking.cpp
+  
+#   src/config.cpp
+  
+#   src/tracking_result_evaluation.cpp
+#   src/local_map.cpp
+#   src/local_tracker.cpp
+  
+#   src/constraints/constraint_proposal.cpp
+#   src/constraints/constraint_proposal_voter.cpp
+#   src/constraints/constraint_proposal_validator.cpp
+  
+#   src/serialization/map_serializer_interface.cpp
+#   src/serialization/map_serializer.cpp
+  
+#   src/visualization/graph_visualizer.cpp
+  
+#   src/types.cpp
+# )
 
-#add_executable(camera_keyframe_tracker
-#  src/camera_keyframe_tracker_node.cpp
-#)
+# target_link_libraries(${PROJECT_NAME}
+#   ${G2O_CORE_LIBRARY}
+#   ${G2O_SOLVER_DENSE}
+#   ${G2O_SOLVER_EIGEN}
+#   ${G2O_TYPES_SLAM3D}
+#   ${catkin_LIBRARIES}
+# )
 
-#target_link_libraries(camera_keyframe_tracker
-#  ${PROJECT_NAME}
-#)
+# #add_executable(camera_keyframe_tracker
+# #  src/camera_keyframe_tracker_node.cpp
+# #)
 
-add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg)
+# #target_link_libraries(camera_keyframe_tracker
+# #  ${PROJECT_NAME}
+# #)
+
+# add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg)
